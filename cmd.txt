@@ -1,0 +1,24 @@
+
+source test_ml/bin/activate
+apt install docker-buildx
+
+
+mlserver start .
+
+mlflow models build-docker
+
+mlserver build build_model/ -t tigard.azurecr.io/mlflow-sklearn-serve
+
+mlserver start build_model/
+
+mlflow models serve -m ./build_model/model -p 1234 --enable-mlserver
+
+mlflow models serve -m ./build_model/model -p 8011 -h 0.0.0.0  --env-manager local --enable-mlserver
+
+mlflow models generate-dockerfile -m ./build_model/model --env-manager local --enable-mlserver --install-mlflow
+
+mlflow models build-docker -m ./build_model/model -n tigard.azurecr.io/mlflow-sklearn-serve --env-manager local --enable-mlserver --install-mlflow
+
+mlflow server --host 0.0.0.0
+docker run -d -p 5001:5000  mlflow_local
+docker build -t mlflow_local .
