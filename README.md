@@ -98,13 +98,11 @@ python requests\exmp_request_upload_model.py
 http://localhost:5000
 respone {'mesage': 'online infer is successfull', 'data_info': 'None', 'inference_result': '[[0. 1. 0. 0. 0. 0. 0. 0. 0. 0.]]'}
 ```
-## step 8 Task 4
-*For Task 4 please go to task_4 folder
-[link text](task_4/README.md)
+
 
 ## Discussion
 
- For task1 i created two models, model1 is for  next month  purchase amount regression, other model2 is a classifier which predict next month purchase with some intervals
+ For step1 i created two models, model1 is for  next month  purchase amount regression, other model2 is a classifier which predict next month purchase with some intervals
  intervals for this model or known names bins are:
  [-3.57345,
  378.555,
@@ -122,13 +120,13 @@ respone {'mesage': 'online infer is successfull', 'data_info': 'None', 'inferenc
 
  I did not used customer id in my dataset but customer id can be inserted to data model for the understanding of special user groups' buy trends
 
- For task 2 model upload service receive model signature but cant use model signature because of i have lack of time to implement and improve this service.
+ For step 2 model upload service receive model signature but cant use model signature because of i have lack of time to implement and improve this service.
  However, in order to increase productivity of user uploaded models these signatures are very important this service should use this metadata.This service requested to use of binary model file, username,model name,version,description,model_path for mlservice,model signature(not fully implemented to use it) and log params for various
  parameters that model has
 
- For task2 get model service return model url which is an accessible endpoint for mlfow server users.Also this service return model signature if it is found inside model metadata i think it is very usefull to understand what is the model inputs and outputs are
+ For step 2 get model service return model url which is an accessible endpoint for mlfow server users.Also this service return model signature if it is found inside model metadata i think it is very usefull to understand what is the model inputs and outputs are
 
- For task 3 i chose  model2 which is a classifier based on bins that i mentioned before.I already explained why i chose this model
+ For step 3 i chose  model2 which is a classifier based on bins that i mentioned before.I already explained why i chose this model
 
  For api service task i already put example python scripts to test this services but anyone can use any tool(Postman,Insomnia,curl etc.)
  
